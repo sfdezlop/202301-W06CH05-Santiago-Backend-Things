@@ -1,4 +1,4 @@
-name: Sonar #Nombre del fichero
+name: Sonar
 on:
   push:
     branches:
@@ -16,7 +16,7 @@ jobs:
       - name: Install modules
         run: npm ci
       - name: Testing in production with coverage
-        run: npm run test:prod #Ejecuta los tests que hayamos hecho desde el servidor.
+        run: npm run test:prod #Change for a valid npm script
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

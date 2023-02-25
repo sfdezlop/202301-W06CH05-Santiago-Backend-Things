@@ -1,4 +1,4 @@
-name: Audit # Nombre del fichero .yml
+name: Audit
 on: push
 jobs:
   audit:
