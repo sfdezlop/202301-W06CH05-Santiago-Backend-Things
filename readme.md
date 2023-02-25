@@ -68,4 +68,10 @@ AÑADIMOS un front con REDUX testado
 - git checkout -b feature/folders
 - src, dist y data
 - Push a GH, PR, GH Merge, GH Delete Branch
-- GIT checkout main, pull, checkout a rama de trabajo, merge a main y checkout -b a feature/nuevaramadetrabajo
+- GIT checkout main, pull, checkout a rama de trabajo, merge a main y checkout -b a feature/check
+
+### Check del funcionamiento del server y de sonar
+
+Hacer PR en modo draft para ver si hay lectura de Sonar
+
+- Sonar: Falta sonar.yml, rehago audit.yml y da error sonar por estar desincronizados package.json y package-lok.json. Ejecuto npm i para tratar de solucionarlo.
