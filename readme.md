@@ -1,30 +1,58 @@
-# Serve Node-TypeScrip-Jest
+# Week 6 - Challenge 5
 
-## Desde un proyecto previo sin typescript
+## API REST Things I already know / Lo que querais
 
-```shell
-mpm i
-```
+Crea una API REST que se conecte a un fichero JSON, para manipular recursos de tipo _cosas que ya sé_. El JSON tendrá una sola propiedad de tipo array, donde almacenarán objetos que representarán cosas que hemos aprendido en el bootcamp.
 
-Añadimos:
+La API REST debe tener los siguientes endpoints:
 
-- typescript
-- @types/node
+[GET] /things -> devuelve el array de cosas que ya sé
 
-### Eslint
+[GET] /things/:idThing -> devuelve una cosa que ya sé
 
-- @typescript-eslint/eslint-plugin
-- @typescript-eslint/parser
+[DELETE] /things/:idThing -> borra una cosa que ya sé
 
-### Jest
+[POST] /things -> crea una cosa que ya sé (la recibe en el body)
 
-- ts-jest
-- @types/jest
+[PATCH] /things -> modifica una cosa que ya sé (la recibe en el body)
 
-```shell
- npm i -D typescript @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser ts-jest @types/jest
-```
+Usamos express con las capas:
 
+- app
+- router
+- controller
+- repo
 
-- cross-env
-- dotenv
+AÑADIMOS un front con REDUX testado
+
+- Lista de 'things'
+- Añadir 'thing'
+- Borrar 'thing'
+- Editar 'thing'
+
+- Página de detalle
+
+## Proceso de Instalación
+
+- Copiar archivos de raíz de https://github.com/alce65/week6._2023.server.express.git. Modificar autor y name en package.json
+- Copiar carpeta .github con solo audit.yml y sonar-project.properties. Modificar el sonar-project.properties con las credenciales del repo de github
+- npm i
+- npm i -D typescript @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser ts-jest @types/jest
+- npm i cross-env
+- npm i dotenv
+- git init, git add ., git commit -m"Initial Commit"
+
+### Vincular a repo de github
+
+- git remote add origin https://github.com/sfdezlop/202301-W06CH05-Santiago-Backend-Things.git
+- git branch -M main
+- git push -u origin main
+
+### Protección de rama main
+
+- git checkout -b feature/husky
+- npx husky install
+- npx husky-init
+- Eliminar archivo .husky/pre-commit
+- Pegar de otro proyecto los huskies commit-msg y pre-push
+- En github proteger rama main en settings>branches
