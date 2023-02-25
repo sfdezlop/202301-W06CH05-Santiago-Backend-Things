@@ -56,3 +56,16 @@ AÑADIMOS un front con REDUX testado
 - Eliminar archivo .husky/pre-commit
 - Pegar de otro proyecto los huskies commit-msg y pre-push
 - En github proteger rama main en settings>branches
+- Push a GH de la feature/husky con PR, checkout main y pull a main desde GH, checkout a feature/husky y merge con main. checkout -b feature/nuevafeature
+
+### Alta en Sonar
+
+- Alta del proyecto en https://sonarcloud.io/projects
+- GH>Settings>Secrets & Variables>Actions>New repo secret: añadir SONAR_TOKEN y Secret
+
+### Añadir estructura de carpetas y archivos de server
+
+- git checkout -b feature/folders
+- src, dist y data
+- Push a GH, PR, GH Merge, GH Delete Branch
+- GIT checkout main, pull, checkout a rama de trabajo, merge a main y checkout -b a feature/nuevaramadetrabajo
