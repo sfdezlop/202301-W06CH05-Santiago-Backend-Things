@@ -1,5 +1,6 @@
 import { Response, Request } from 'express';
-import { ThingsFileRepo } from '../repository/things.file.repo.js';
+import { file, ThingsFileRepo } from '../repository/things.file.repo.js';
+import fs from 'fs/promises';
 
 export class ThingsController {
   // eslint-disable-next-line no-useless-constructor, no-unused-vars
@@ -15,7 +16,15 @@ export class ThingsController {
     resp.send('This is thing ' + req.params.id);
   }
 
-  post(_req: Request, _resp: Response) {}
+  async write(req: Request, res: Response) {
+    const numberOfRecords = JSON.parse(
+      await fs.readFile(file, { encoding: 'utf-8' }).then()
+    ).length;
+    const { groupOfThing, thing } = req.body;
+    const newRecord = { id: numberOfRecords + 1, groupOfThing, thing };
+    await this.repo.write([newRecord]);
+    res.json(newRecord);
+  }
 
   patch(_req: Request, _resp: Response) {}
 
