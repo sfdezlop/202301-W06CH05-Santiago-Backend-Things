@@ -21,7 +21,7 @@ export class ThingsController {
       await fs.readFile(file, { encoding: 'utf-8' }).then()
     ).length;
     const { groupOfThing, thing } = req.body;
-    const newRecord = await { id: numberOfRecords + 1, groupOfThing, thing };
+    const newRecord = { id: numberOfRecords + 1, groupOfThing, thing };
     await this.repo.write([newRecord]);
     res.json(newRecord);
   }

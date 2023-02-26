@@ -18,11 +18,6 @@ app.use(express.json());
 
 app.use(cors(corsOptions));
 
-// App.use((_req, _resp, next) => {
-//   console.log('Soy un middleware');
-//   next();
-// });
-
 // Modo más organizado de hacerlo
 // Ejemplo para una ruta
 
