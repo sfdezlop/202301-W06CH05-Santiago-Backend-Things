@@ -1,1 +1,4 @@
-[{"id":1,"groupOfThing":"packaging","thing":"Vite"},{"id":2,"groupOfThing":"framework","thing":"React"},{"id":3},{"id":4},{"id":5,"groupOfThing":"library","thing":"Redux"},{"id":6,"groupOfThing":"library","thing":"Redux"}]
+[
+  { "id": 1, "groupOfThing": "packaging", "thing": "Vite" },
+  { "id": 2, "groupOfThing": "framework", "thing": "React" }
+]
