@@ -26,7 +26,12 @@ export class ThingsController {
     res.json(newRecord);
   }
 
-  patch(_req: Request, _resp: Response) {}
+  async patch(req: Request, res: Response) {
+    const { id } = req.params;
+    const partOfRecordToEdit = req.body;
+    await this.repo.update(id, partOfRecordToEdit);
+    res.json(partOfRecordToEdit);
+  }
 
   delete(_req: Request, _resp: Response) {}
 }
