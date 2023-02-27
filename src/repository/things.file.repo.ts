@@ -36,6 +36,20 @@ export class ThingsFileRepo {
     console.table(newTable);
   }
 
-  update() {}
+  async update(idToEdit: string, recordToEdit: ThingStructure) {
+    const jsonOldTable = await fs.readFile(file, 'utf-8');
+    const oldTable = JSON.parse(jsonOldTable);
+    const newTable = oldTable.map((element: any) => {
+      if (element.id === Number(idToEdit)) {
+        return { ...element, ...recordToEdit };
+      }
+
+      return element;
+    });
+    const jsonNewTable = JSON.stringify(newTable);
+    await fs.writeFile(file, jsonNewTable, 'utf-8');
+    console.log('Data edited successfully in file:', jsonNewTable);
+  }
+
   delete() {}
 }
