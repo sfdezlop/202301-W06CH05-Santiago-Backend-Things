@@ -5,16 +5,13 @@ import { thingsRouter } from './router/things.router.js';
 
 export const app = express();
 app.disable('x-powered-by');
-
 const corsOptions = {
   origin: '*',
 };
-
 app.use(morgan('dev'));
 // Middleware que nos da información  sobre las request recibidas en el server, por ejemplo: GET /things/545 304 2.757 ms - -
-
 app.use(express.json());
-// Middleware para transformar la req.body en formato json
+// Middleware para transformar la resp en formato json, que es el objetivo de una API REST
 
 app.use(cors(corsOptions));
 

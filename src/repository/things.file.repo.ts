@@ -22,6 +22,13 @@ export class ThingsFileRepo {
     });
   }
 
+  async readId(idToRead: string) {
+    const jsonTable = await fs.readFile(file, { encoding: 'utf-8' });
+    const table = JSON.parse(jsonTable);
+    const record = table.filter((item: any) => item.id === Number(idToRead));
+    return record[0];
+  }
+
   async write(newRecord: ThingStructure[]) {
     console.log(`Record to write in file ${file}:`);
     console.table(newRecord);
@@ -52,10 +59,13 @@ export class ThingsFileRepo {
 
   async delete(idToDelete: string) {
     const jsonOldTable = await fs.readFile(file, 'utf-8');
-    const oldTable = JSON.parse(jsonOldTable);
+    const [...oldTable] = JSON.parse(jsonOldTable);
     const jsonNewTable = JSON.stringify(
       oldTable.filter((element: any) => element.id !== Number(idToDelete))
     );
     await fs.writeFile(file, jsonNewTable, 'utf-8');
+    return oldTable.filter(
+      (element: any) => element.id === Number(idToDelete)
+    )[0];
   }
 }
