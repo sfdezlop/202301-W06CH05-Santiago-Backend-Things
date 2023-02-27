@@ -48,8 +48,14 @@ export class ThingsFileRepo {
     });
     const jsonNewTable = JSON.stringify(newTable);
     await fs.writeFile(file, jsonNewTable, 'utf-8');
-    console.log('Data edited successfully in file:', jsonNewTable);
   }
 
-  delete() {}
+  async delete(idToDelete: string) {
+    const jsonOldTable = await fs.readFile(file, 'utf-8');
+    const oldTable = JSON.parse(jsonOldTable);
+    const jsonNewTable = JSON.stringify(
+      oldTable.filter((element: any) => element.id !== Number(idToDelete))
+    );
+    await fs.writeFile(file, jsonNewTable, 'utf-8');
+  }
 }
