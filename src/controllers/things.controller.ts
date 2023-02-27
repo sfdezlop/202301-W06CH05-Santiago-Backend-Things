@@ -69,7 +69,6 @@ export class ThingsController {
 
   async delete(req: Request, res: Response) {
     const result = await this.repo.delete(req.params.id);
-    // Res.send(req.params.id);
     res.json({
       postman:
         'https://web.postman.co/workspace/Bootcamp~c022729b-446d-47c3-812c-2ba968fd50b7/request/25664407-f9ed9c51-96be-4acd-aef6-1464dd37afb8',
