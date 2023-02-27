@@ -1,13 +1,1 @@
-[
-  { "id": 1, "groupOfThing": "library", "thing": "cambiar el 1" },
-  { "id": 2, "groupOfThing": "library", "thing": "cambiar el 2" },
-  { "id": 3, "groupOfThing": "library", "thing": "cambiar el 3" },
-  { "id": 4, "groupOfThing": "library", "thing": "cambiar el 44" },
-  { "id": 5, "groupOfThing": "framework", "thing": "cambiar el 55" },
-  { "id": 6, "groupOfThing": "library", "thing": "new" },
-  { "id": 7, "groupOfThing": "library", "thing": "hola" },
-  { "id": 8, "groupOfThing": "library", "thing": "hola" },
-  { "id": 9, "groupOfThing": "library", "thing": "hola" },
-  { "id": 10, "groupOfThing": "library", "thing": "añadir" },
-  { "id": 11, "groupOfThing": "library", "thing": "hola" }
-]
+[{"id":4,"groupOfThing":"library","thing":"cambiar el 44"},{"id":5,"groupOfThing":"framework","thing":"cambiar el 55"},{"id":6,"groupOfThing":"library","thing":"new"},{"id":7,"groupOfThing":"library","thing":"hola"},{"id":8,"groupOfThing":"library","thing":"hola"},{"id":9,"groupOfThing":"library","thing":"hola"},{"id":10,"groupOfThing":"library","thing":"añadir"},{"id":11,"groupOfThing":"library","thing":"hola"}]

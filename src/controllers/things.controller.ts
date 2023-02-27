@@ -33,5 +33,8 @@ export class ThingsController {
     res.json(partOfRecordToEdit);
   }
 
-  delete(_req: Request, _resp: Response) {}
+  async delete(req: Request, res: Response) {
+    await this.repo.delete(req.params.id);
+    res.send(req.params.id);
+  }
 }
