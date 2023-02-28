@@ -3,5 +3,7 @@
   { "id": 2, "groupOfThing": "framework", "thing": "cambiar el 55" },
   { "id": 3, "groupOfThing": "library", "thing": "new" },
   { "id": 4, "groupOfThing": "library", "thing": "hola" },
-  { "id": 5, "groupOfThing": "library", "thing": "hola" }
+  { "id": 5, "groupOfThing": "library", "thing": "hola" },
+  { "id": 6, "groupOfThing": "library", "thing": "hola" },
+  { "id": 7, "groupOfThing": "config", "thing": "update 7" }
 ]

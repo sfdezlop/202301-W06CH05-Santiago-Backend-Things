@@ -1,15 +1,7 @@
 import fs from 'fs/promises';
+import { ThingStructure } from '../entities/thing';
+// Import { Repo } from './repo.interface'; doest work beacuse parameters structure of methods are different
 export const file = './data/data.json';
-
-export type GroupOfThingsStructure = {
-  groupOfThing: 'packaging' | 'environment' | 'framework';
-};
-
-export type ThingStructure = {
-  id: number;
-  groupOfThing: GroupOfThingsStructure;
-  thing: string;
-};
 
 export class ThingsFileRepo {
   read() {
