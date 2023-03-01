@@ -75,3 +75,21 @@ AÑADIMOS un front con REDUX testado
 Hacer PR en modo draft para ver si hay lectura de Sonar
 
 - Sonar: Falta sonar.yml, rehago audit.yml y da error sonar por estar desincronizados package.json y package-lok.json. Ejecuto npm i para tratar de solucionarlo.
+
+# Conexión a mongodb (rama mongo)
+
+- Fichero .env en la raiz del proyecto para introducir las credenciales de acceso a mongo atlas
+- Fichero sample.env en la raiz del proyecto para informar de la necesidad de disponer de fichero .env
+- Nueva entidad User en /entities
+- Nuevo interface para la gestión de errores en /interfaces
+- repo.interface.ts en src/repository con la definción de métodos aplicables a todos los repos
+- Instalar npm i mongoose @types/mongoose
+- users.mongo.model.ts en src/repository con la definición del esquema mongo del modelo que se va a crear en mongo
+- Instalar npm i debug @types/debug
+- users.mongo.repo.ts en src/repository
+- config.ts en src para poder leer el .env con las credenciales de acceso de mongo atlas
+- db.connect.ts em src/db para leer config.js y establecer la conexión con mongo atlas
+- Cambios en index y app
+- users.controller.ts en src/controllers
+- users.router.ts en src/routers
+- Cambio el symbol userId en el modelo y en el schema por id para que los controllers sean sustituibles más facilmente

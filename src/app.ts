@@ -1,10 +1,16 @@
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { thingsRouter } from './router/things.router.js';
+import { thingsRouter } from './routers/things.router.js';
+import { usersRouter } from './routers/users.router.js';
+import createDebug from 'debug';
+import { CustomError } from './interfaces/error.js';
+
+const debug = createDebug('w6:app');
 
 export const app = express();
 app.disable('x-powered-by');
+
 const corsOptions = {
   origin: '*',
 };
@@ -12,24 +18,29 @@ app.use(morgan('dev'));
 // Middleware que nos da información  sobre las request recibidas en el server, por ejemplo: GET /things/545 304 2.757 ms - -
 app.use(express.json());
 // Middleware para transformar la resp en formato json, que es el objetivo de una API REST
-
 app.use(cors(corsOptions));
+
+app.use((_req, _resp, next) => {
+  debug('Soy un middleware');
+  next();
+});
 
 // Modo más organizado de hacerlo
 // Ejemplo para una ruta
 
 app.use('/things', thingsRouter);
-// Middleware para definir un endopoint para nuestra aplicación
+app.use('/users', usersRouter);
 
 // Modo más simple de hacerlo
 // Ejemplo para la ruta home
 
 app.get('/', (_req, resp) => {
   resp.json({
-    name: 'Pepe',
-    age: 22,
-    date: new Date(),
-    object: { field1: 'hola' },
+    info: '/Ejemplo de middleware para respuesta en el directorio raiz con la oferta de endpoints de la API',
+    endpoints: {
+      things: '/things',
+      users: '/users',
+    },
   });
 });
 app.get('/:id', (req, resp) => {
@@ -41,3 +52,21 @@ app.post('/', (req, resp) => {
 });
 app.patch('/:id');
 app.delete('/:id');
+
+app.use(
+  (error: CustomError, _req: Request, resp: Response, _next: NextFunction) => {
+    debug('Middleware de errores');
+    const status = error.statusCode || 500;
+    const statusMessage = error.statusMessage || 'Internal server error';
+    resp.status(status);
+    resp.json({
+      error: [
+        {
+          status,
+          statusMessage,
+        },
+      ],
+    });
+    debug(status, statusMessage, error.message);
+  }
+);
