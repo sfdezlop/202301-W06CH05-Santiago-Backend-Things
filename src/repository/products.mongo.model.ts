@@ -1,29 +1,17 @@
 import { model, Schema } from 'mongoose';
-import { User } from '../entities/user.js';
+import { Product } from '../entities/product.js';
 
-const userSchema = new Schema<User>({
-  userName: {
+const productSchema = new Schema<Product>({
+  productSKU: {
     type: String,
     required: true,
     unique: true,
   },
-  userPassword: {
-    type: String,
-    required: true,
-  },
-  userFirstName: {
-    type: String,
-    required: true,
-  },
-  userLastName: {
-    type: String,
-    required: true,
-  },
-  userRole: {
+  productDescription: {
     type: String,
     required: true,
   },
 });
 
-export const UserModel = model('User', userSchema, 'users');
+export const ProductModel = model('Product', productSchema, 'products');
 // Los parámetros de model son: Nombre del modelo, esquema definido aplicable, alias en singular y en minúsculas. Si no se añade el tercer parámetro, en mongo se creará una colección basada en el nombre del primer parámetro en minúsculas y terminado con una s

@@ -2,11 +2,11 @@ import express, { NextFunction, Request, Response } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import { thingsRouter } from './routers/things.router.js';
-import { usersRouter } from './routers/users.router.js';
+import { productsRouter } from './routers/products.router.js';
 import createDebug from 'debug';
 import { CustomError } from './interfaces/error.js';
 
-const debug = createDebug('w6:app');
+const debug = createDebug('W6:app');
 
 export const app = express();
 app.disable('x-powered-by');
@@ -29,7 +29,8 @@ app.use((_req, _resp, next) => {
 // Ejemplo para una ruta
 
 app.use('/things', thingsRouter);
-app.use('/users', usersRouter);
+app.use('/users', productsRouter);
+app.use('/products', productsRouter);
 
 // Modo más simple de hacerlo
 // Ejemplo para la ruta home
