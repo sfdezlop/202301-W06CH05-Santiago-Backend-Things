@@ -6,4 +6,5 @@ export const config = {
   passwd: encodeURIComponent(process.env.DB_PASSWORD as string),
   cluster: process.env.DB_CLUSTER,
   dbName: process.env.DB_NAME,
+  jwtSecret: process.env.SECRET,
 };
