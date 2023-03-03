@@ -3,7 +3,7 @@ import { app } from './app.js';
 import { dbConnect } from './db/db.connect.js';
 import createDebug from 'debug';
 
-const debug = createDebug('w6');
+const debug = createDebug('W6');
 // Entorno de nombres en el que se ejecutará debug
 
 const PORT = process.env.PORT || 4500;
