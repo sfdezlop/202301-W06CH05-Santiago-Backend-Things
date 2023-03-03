@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { thingsRouter } from './routers/things.router.js';
 import { productsRouter } from './routers/products.router.js';
+import { usersRouter } from './routers/users.router.js';
 import createDebug from 'debug';
 import { CustomError } from './interfaces/error.js';
 
@@ -29,7 +30,7 @@ app.use((_req, _resp, next) => {
 // Ejemplo para una ruta
 
 app.use('/things', thingsRouter);
-app.use('/users', productsRouter);
+app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 
 // Modo más simple de hacerlo
@@ -41,6 +42,7 @@ app.get('/', (_req, resp) => {
     endpoints: {
       things: '/things',
       users: '/users',
+      products: '/products',
     },
   });
 });
