@@ -23,6 +23,12 @@ export class ProductsMongoRepo implements Repo<Product> {
     return data;
   }
 
+  async search(query: { key: string; value: unknown }): Promise<Product[]> {
+    debug('search');
+    const data = await ProductModel.find({ [query.key]: query.value });
+    return data;
+  }
+
   async create(info: Partial<Product>): Promise<Product> {
     debug('Instantiated at create method in class ProductsMongoRepo');
     const data = await ProductModel.create(info);
